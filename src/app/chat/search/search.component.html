@@ -1,0 +1,10 @@
+<div style="background:white;">
+ <div [ngClass]="[message.modeMsg]">
+ 	<hr style="margin-bottom:20px; margin-top:0px;" />
+  	<div style="font-size: 13px;margin-left:20px;">{{ message.msgDate }} {{ message.msgHour }}</div>
+    <div style="line-heigth:1.2; margin-top:10px; color:black; font-size:14px;margin-left:20px;"*ngIf="message.msgText"  [innerHTML]="message.msgText | safeHTML"></div>
+      <hr style="margin-bottom:0px; margin-top:20px;" />
+ </div>
+</div>
+
+				

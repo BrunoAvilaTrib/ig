@@ -1,0 +1,336 @@
+{
+    "status": {
+        "code": "0000",
+        "message": "El servicio se ha ejecutado de forma correcta."
+    },
+    "data": [
+        {
+            "idMessage": "1",
+            "msgText": "Luego, puedes hacer tus pruebas, solo se agregó un bean para el envío de correo, pero solo es hacer el cambio en el applicationContext.",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:37",
+            "modeMsg": "out",
+            "fromUser": "Elvis Perez"
+        },
+        {
+            "idMessage": "2",
+            "msgText": "Bueno",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:36",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "3",
+            "msgText": "Se quedó ahí",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:36",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "4",
+            "msgText": "Cómo no dijeron nada",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:36",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "5",
+            "msgText": "Ya, entonces no lo toques.",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:36",
+            "modeMsg": "out",
+            "fromUser": "Elvis Perez"
+        },
+        {
+            "idMessage": "6",
+            "msgText": "Ese no se tocó",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:36",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "7",
+            "msgText": "No",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:36",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "8",
+            "msgText": "Pero no recompilaste el pase pasado o sí?",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:36",
+            "modeMsg": "out",
+            "fromUser": "Elvis Perez"
+        },
+        {
+            "idMessage": "9",
+            "msgText": "Está en la misma capa",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:35",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "10",
+            "msgText": "Tiene el tramas útil anterior",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:35",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "11",
+            "msgText": "No.",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:35",
+            "modeMsg": "out",
+            "fromUser": "Elvis Perez"
+        },
+        {
+            "idMessage": "12",
+            "msgText": "Esa vaina debe cambiar tmb?",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:35",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "13",
+            "msgText": "Oe tio, hay un proyecto del push service",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:35",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "14",
+            "msgText": "Tal cual el último pase",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:08",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "15",
+            "msgText": "Recompilo",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:08",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "16",
+            "msgText": "Ok",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:08",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "17",
+            "msgText": "Oj",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:08",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "18",
+            "msgText": "No has echo ningún cambio?",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:08",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "19",
+            "msgText": "Esto",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:08",
+            "modeMsg": "out",
+            "fromUser": "Elvis Perez"
+        },
+        {
+            "idMessage": "20",
+            "msgText": "Es que esa vaina no dice en el correo pe",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:07",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "21",
+            "msgText": "O toda la capa seerices la recompilo del último pase?",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:07",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "22",
+            "msgText": "Es ese de Cross sesión?",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:07",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "23",
+            "msgText": "El Tag se los services",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:07",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "24",
+            "msgText": "Por eso",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:07",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "25",
+            "msgText": "Claro",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:07",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "26",
+            "msgText": "No recuerwo",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:07",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "27",
+            "msgText": "La idea es pasar sobre lo que ya tenemos en producción.",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:07",
+            "modeMsg": "out",
+            "fromUser": "Elvis Perez"
+        },
+        {
+            "idMessage": "28",
+            "msgText": "No lo conversamos contigo también?",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:06",
+            "modeMsg": "out",
+            "fromUser": "Elvis Perez"
+        },
+        {
+            "idMessage": "29",
+            "msgText": "Si, eso es lo que acordamos.",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:06",
+            "modeMsg": "out",
+            "fromUser": "Elvis Perez"
+        },
+        {
+            "idMessage": "30",
+            "msgText": "??",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:05",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "31",
+            "msgText": "Todo lo compilo tmb de ese tag",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:05",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "32",
+            "msgText": "Pero para este pase",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:05",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "33",
+            "msgText": "Si pueh",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:05",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "34",
+            "msgText": "Si",
+            "msgDate": "27/2/2019",
+            "msgHour": "14:05",
+            "modeMsg": "out",
+            "fromUser": "Elvis Perez"
+        },
+        {
+            "idMessage": "35",
+            "msgText": "En shared_library?",
+            "msgDate": "27/2/2019",
+            "msgHour": "15:04",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "36",
+            "msgText": "Va en capa web y capa servicios",
+            "msgDate": "27/2/2019",
+            "msgHour": "15:04",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "37",
+            "msgText": "Tramas-util",
+            "msgDate": "27/2/2019",
+            "msgHour": "15:03",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "38",
+            "msgText": "Otra cosa",
+            "msgDate": "27/2/2019",
+            "msgHour": "15:03",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "39",
+            "msgText": "Pido copiarlo en capa web",
+            "msgDate": "27/2/2019",
+            "msgHour": "15:05",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "40",
+            "msgText": "Ok",
+            "msgDate": "27/2/2019",
+            "msgHour": "15:05",
+            "modeMsg": "in",
+            "fromUser": "Alex Scotia"
+        },
+        {
+            "idMessage": "41",
+            "msgText": "El cambio solo afecta a la capa de servicios.",
+            "msgDate": "27/2/2019",
+            "msgHour": "15:05",
+            "modeMsg": "out",
+            "fromUser": "Elvis Perez"
+        }
+    ]
+}

@@ -1,0 +1,74 @@
+buildscript 
+{
+	ext {
+		springBootVersion = '2.0.3.RELEASE'
+	}
+	repositories {
+		mavenLocal()
+		mavenCentral()
+		jcenter()
+	}
+	dependencies {
+		classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+	}
+}
+
+plugins {
+  id "org.sonarqube" version "2.7"
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'war'
+apply plugin: 'jacoco'
+
+allprojects{
+	group = 'pe.com.synopsis'
+	version = '1.0.0'
+	sourceCompatibility = 1.8
+	
+	ext{
+		providerName = 'Synopsis S.A.'
+		providerId = 'ws.synopsis'
+		
+		springVersion = '4.3.12.RELEASE'
+		jacksonVersion = '2.9.1'
+		logbackVersion = '1.2.3'
+		slf4jVersion = '1.7.25'
+		commonsLangVersion = '3.6'
+		ehcacheVersion = '2.10.4'
+		gsonVersion = '2.8.0'
+		
+		javaxMailVersion = '1.4.7'
+		
+		javaxElVersion = '2.2.6'
+		junitVersion = '4.12'
+		mockitoVersion = '2.10.0'
+		jsonAssertVersion = '1.5.0'
+	}
+}
+
+jacocoTestReport {
+	afterEvaluate {
+	    classDirectories = files(classDirectories.files.collect {
+	    	fileTree(dir: it, exclude: System.getProperty("sonar.exclusions", "").split(","))
+		})
+	}
+}
+
+repositories {
+	mavenCentral()
+	mavenLocal()
+	jcenter()
+}
+
+dependencies 
+{
+	compile('org.springframework.boot:spring-boot-starter-web')
+	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+	testCompile('org.springframework.boot:spring-boot-starter-test')
+	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat') 
+
+}

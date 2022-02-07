@@ -1,0 +1,209 @@
+<!-- ********************layer Message************************************ -->
+<dashboard-layermsg></dashboard-layermsg>
+<!-- ********************header************************************ -->
+<div class="ig-dashboard-title-wrapper">
+	<img src="../../assets/img/icn-chat-global.png" class="img-title">
+	<span class="ig-dashboard-title">Chat Center</span>
+	<div class="ig-searcher-container">
+		<mat-icon class="ig-searcher-icon" matSuffix>search</mat-icon>
+		<input type="text" placeholder="Buscar" class="ig-input-search" matInput (keyup)="applyFilter($event.target.value)">
+	</div>
+</div>
+
+<!-- *******************sub-header**************************************** -->
+
+<div class="ig-dashboard-title-wrapper sub-header chat-theme">
+	<mat-select placeholder="Todos los clientes" (selectionChange)="findContactsBy(itemSelected.value)" #itemSelected>
+		<mat-option value="2" selected>Todos los clientes</mat-option>
+		<mat-option value="1">Atendidos</mat-option>
+		<mat-option value="0">No Atendidos</mat-option>
+	</mat-select>
+	<ng-container *ngIf="rolePk == 2 || rolePk == 3">
+		<button mat-icon-button (click)="reloadClients($event)">
+			<mat-icon>cached</mat-icon>
+		</button>
+		<button mat-button type="button" class="attended-button">
+			<img src="../../assets/img/icn-atendido-chat.png"> Atendido
+		</button>
+		<button mat-button type="button" class="incidence-button" (click)="insideCustomerDialog()">
+			<img src="../../assets/img/icn-insidencia-chat.png"> Insidencia
+		</button>
+		<button mat-button type="button" class="block-button" (click)="excluidCustomerDialog()">
+			<img src="../../assets/img/icn-bloquear-chat.png"> Bloquear
+		</button>
+	</ng-container>
+</div>
+<!-- ********************body**************************************** -->
+
+<div class="chat-container">
+	<div class="chat-list-section">
+
+<!-- *********************************** Vista 1 *********************************************** -->
+		<section *ngIf="rolePk===1 || rolePk===2" [ngClass]="{'chat-list-section-view1--active' : sectionView1}" class="chat-list-section-view1 selectors-container">
+			<mat-card>
+				<div class="select-view1" *ngIf="rolePk===1">
+					<div>Seleccione Area</div>
+					<mat-select placeholder="Ninguno" (selectionChange)="loadAllSupervisorByArea( areaSelected.value )" #areaSelected>
+						<mat-option *ngFor="let area of areas" value="{{area.areaPK}}">
+							{{ area.name }}
+						</mat-option>
+					</mat-select>
+				</div>
+
+				<div class="select-view1" *ngIf="rolePk===1">
+					<div>Seleccione Supervisor</div>
+					<mat-select placeholder="Ninguno" class="chat-sublist-section" (selectionChange)="loadAllOfficerBySupervisorEmploy(supervisorSelected.value)"
+					 #supervisorSelected>
+						<!-- <div *ngIf="supervisores.length == 0">No hay Supervisores.</div> -->
+						<mat-option *ngFor="let supervisor of supervisores" value="{{supervisor.employPK}}">
+							{{ supervisor.nameEmploy }}
+						</mat-option>
+					</mat-select>
+				</div>
+
+				<div class="select-view1">
+					<div>Seleciconar Operador</div>
+					<!-- <div *ngIf="officers.length === 0">No hay Funcionarios.</div> -->
+					<mat-select placeholder="Ninguno" #officerSelected>
+						<mat-option *ngFor="let officer of officers" [value]="officer.employPK">
+							{{ officer.nameEmploy}}
+						</mat-option>
+					</mat-select>
+				</div>
+
+				<button mat-raised-button class="accept-selection-button" type="button" (click)=selectOfficer(officerSelected)>Aceptar</button>
+			</mat-card>
+		</section>
+
+<!-- ***************************** Vista 2 ****************************************************** -->
+		<section [ngClass]="{'chat-list-section-view2--active' : sectionView2}" class="chat-list-section-view2 chat-theme">
+
+			<mat-expansion-panel *ngIf="rolePk === 1 || rolePk === 2">
+				<mat-expansion-panel-header>
+					<mat-panel-title>
+						{{ nameOfficer}}
+					</mat-panel-title>
+				</mat-expansion-panel-header>
+
+				<div class="select-view1" *ngIf="rolePk===1">
+					<div>Seleccione Area</div>
+					<mat-select placeholder="Ninguno" (selectionChange)="loadAllSupervisorByArea( areaSelected.value )" #areaSelected>
+						<mat-option *ngFor="let area of areas" value="{{area.areaPK}}">
+							{{ area.name }}
+						</mat-option>
+					</mat-select>
+				</div>
+
+				<div class="select-view1" *ngIf="rolePk===1">
+					<div>Seleccione Supervisor</div>
+					<mat-select placeholder="Ninguno" class="chat-sublist-section" (selectionChange)="loadAllOfficerBySupervisorEmploy(supervisorSelected.value)"
+					 #supervisorSelected>
+						<!-- <div *ngIf="supervisores.length == 0">No hay Supervisores.</div> -->
+						<mat-option *ngFor="let supervisor of supervisores" value="{{supervisor.employPK}}">
+							{{ supervisor.nameEmploy }}
+						</mat-option>
+					</mat-select>
+				</div>
+
+				<div class="select-view1">
+					<div>Seleccionar Operador</div>
+					<!-- <div *ngIf="officers.length === 0">No hay Funcionarios.</div> -->
+					<mat-select placeholder="Ninguno" #officerSelected>
+						<mat-option *ngFor="let officer of officers" [value]="officer.employPK">
+							{{ officer.nameEmploy}}
+						</mat-option>
+					</mat-select>
+				</div>
+
+				<button mat-raised-button class="accept-selection-button" type="button" (click)=selectOfficer(officerSelected)>Aceptar</button>
+
+			</mat-expansion-panel>
+
+			<mat-card *ngIf="contacts.length == 0" class="notice-no-contacts">No hay contactos.</mat-card>
+			<div class="chat-contact-items">
+				<mat-card class="chat-contact-item" [ngClass]="{'contact-selected': contact.selected}" *ngFor="let contact of contactsTemp,  index as i"
+				 [id]="contact.idChat" (click)="loadMessages(contact, i)">
+					<img *ngIf="!contact.resourceId" class="chat-contact-image chat-contact-image--photo" src="loadImage(contact.resourceId)"
+					/>
+					<!-- <img *ngIf="!contact.resourceId" class="chat-contact-image chat-contact-image--photo" src="loadImage(contact.resourceId){{ this.apiService.urlGet('/resource/v1/load/' + contact.resourceId)}}"/> -->
+					<img *ngIf="contact.resourceId" class="chat-contact-image" src="../../assets/img/icn-client.png" alt="">
+					<div class="chat-contact-user">
+						<div class="title-contact-user">
+							<div class="user-contact-mobile">{{ contact.mobile }}</div>
+							<div class="chat-contact-user-lastMessage">{{ contact.lastUpdate | date:'shortDate':'+0560':'es' }}</div>
+							<!-- <div *ngIf="contact.support==1" class="attended-indicator"> -->
+							<!-- <img src="../../assets/img/icn-atendido.png"> Atendido -->
+							<!-- </div> -->
+						</div>
+						<div class="subtitle-contact-user">
+							<span class="chat-contact-user-lastMessage">{{ contact.lastMessage[0].lastMessage }}</span>
+							<div *ngIf="contact.attended==1" class="attended-indicator"></div>
+							<div *ngIf="contact.attended!=1" class="unattended-indicator"></div>
+						</div>
+						<!-- <div class="chat-contact-user-lastUpdate">{{ contact.lastMessage }}</div> -->
+					</div>
+				</mat-card>
+			</div>
+		</section>
+	</div>
+
+<!-- ********************************************* Vista chat ***********************************  -->
+	<div class="chat-conversation-section">
+		<mat-card [ngClass]="{'chat-conversation-message--active' : tempMessages}" class="chat-conversation-message">
+			<!-- <mat-drawer-container autosize> -->
+			<!-- <div class="chat-conversation-header">
+					<div>
+						{{ customerSelect }}
+					</div>
+					<div>
+						<button mat-icon-button (click)="drawer.toggle()">
+							<mat-icon>search</mat-icon>
+						</button>
+						<button mat-icon-button (click)="reloadMessages($event)">
+							<mat-icon>cached</mat-icon>
+						</button>
+					</div>
+				</div> -->
+			<div class="chat-conversation-messages" id="contentMsg">
+				<!-- <button id="toBottom" class="btn arrow-bottom d-none"><i class="fa fa-chevron-down"></i></button> -->
+				<div class="content">
+					<div class="items">
+						<chat-message *ngFor="let message of messages" [message]="message"></chat-message>
+					</div>
+				</div>
+			</div>
+			<div class="chat-conversation-writting">
+				<button mat-button type="button" class="add-document-button">
+					<label for="btn-file" class="label-btn-file">
+						<img src="../../assets/img/icn-adjuntar.png">
+						<input type="file" name="btn-file" id="btn-file" style="display: none;" (change)="uploadFile($event)">
+					</label>
+				</button>
+				<form [formGroup]="formSendMessage" (ngSubmit)="onFormSubmit()" class="form-send-message">
+					<input matInput enabled="false" type="text" formControlName="msgText" placeholder="Escribe un mensaje aquí" class="chat-conversation-text">
+					<button mat-button type="submit" class="send-button">
+						<img src="../../assets/img/icn-enviar.png">
+					</button>
+				</form>
+			</div>
+			<!-- <mat-drawer #drawer mode="side" position="end" class="chat-search-side">
+					<div class="chat-conversation-header chat-search-side-header">
+						<button class="chat-search-side-button" mat-icon-button (click)="drawer.toggle()">
+							<mat-icon>close</mat-icon>
+						</button>
+						Buscar mensajes
+					</div>
+					<div class="chat-search-message">
+						<mat-form-field class="ig-input-wrapper">
+							<input type="text" matInput placeholder="Buscar" class="ig-input" (input)="searchMessage($event.target.value)">
+							<mat-icon matSuffix>search</mat-icon>
+						</mat-form-field>
+						<div>
+							<chat-search *ngFor="let message of resultsMsg" [message]="message"></chat-search>
+						</div>
+					</div>
+				</mat-drawer> -->
+			<!-- </mat-drawer-container> -->
+		</mat-card>
+	</div>
+</div>

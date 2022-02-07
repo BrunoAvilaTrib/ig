@@ -1,0 +1,26 @@
+<h2 mat-dialog-title>Asignar Chats</h2>
+  <div class="ig-dashboard-container">
+    <form [formGroup]="formAssignChats" (ngSubmit)="onFormSubmit()" class="formAssign">
+      <section class="section-main">
+        <div class="ig-form-column">
+          <mat-form-field class="ig-input-wrapper">
+            <mat-label>Seleccione el operador</mat-label>
+            <mat-select formControlName="employFk">
+              <mat-option *ngFor="let employee of employees" [value]="employee.employPK">
+                {{ employee.nameEmploy }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </section>
+
+      <div class="ig-button-wrapper">
+        <button mat-raised-button class="ig-button ig-button-save" type="submit">
+          Aceptar
+        </button>
+        <button mat-raised-button class="ig-button ig-button-cancel" [mat-dialog-close]="true" type="button">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>

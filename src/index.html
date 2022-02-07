@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>IMGrabber</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="assets/css/fontawesome.min.css" rel="stylesheet"/>
+  <link href="assets/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script>
+    const GlobalVars = (function GlobalVariable() {
+      const constants = {
+        // BASE_API_URL: 'http://25.134.221.139:8080/ig-web-service'
+        BASE_API_URL: 'https://imgrabber.scotiabank.com.pe/ig-web-service'
+        
+
+      }
+      function getConstant(key) { return constants[key]; }
+      return { getConstant: getConstant };
+    })();
+  </script>
+  <script src="assets/js/jquery-3.3.1.slim.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</head>
+
+<body>
+  <app-root ></app-root>
+</body>
+
+</html>

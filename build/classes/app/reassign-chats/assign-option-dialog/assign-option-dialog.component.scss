@@ -1,0 +1,24 @@
+.mat-dialog-title {
+    border-bottom: 3px solid;
+    color: #2e4558;
+    font-size: 2em;
+    padding: 20px;
+    text-align: center; 
+}
+.formAssign {
+    display: flex;
+    flex-direction: column;
+
+    .section-main {
+        margin: 20px auto;
+    }
+    .ig-button-wrapper {
+        justify-content: space-around;
+        margin-right: auto;
+        margin-left: auto;
+        width: 70%;
+    }
+}
+::ng-deep .mat-form-field-infix {
+    width: 200px !important;
+}

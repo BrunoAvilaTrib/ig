@@ -1,0 +1,63 @@
+
+
+
+//********* alineamientos de las columnas**********
+
+.mat-column-name { width: 20% !important;}
+.mat-column-countAssigned { width: 13% !important;}
+.mat-column-state { width: 16% !important;}
+.mat-column-date { width: 20% !important;}
+.mat-column-email { width: 20% !important;}
+.mat-column-delete { width: 5% !important;}
+.mat-column-edite { width: 6% !important;}
+
+//**************estilos de la tabla****************
+.ig-button{
+    background: #2e4558 !important;
+    color: #FFF!important;
+    font-size: 14px!important;
+  }
+  .td.mat-cell:first-of-type{
+    display: flex !important;
+    align-items: center !important;
+  }
+  .sub-header{
+    height: 4.7em;
+  }
+  tr.mat-header-row{
+    height: 3em;
+  }
+  .mat-table{
+    background-color: #f2f5f9;
+  }
+  .ig-dashboard-table-wrapper{
+    border:none;
+  }
+  .table-icon{
+    width: 1.7em;
+  }
+  .mat-header-cell{
+    border:none ; 
+    font-size: 0.9em !important;
+    color:#8c98a2!important; 
+  }
+  .mat-row{
+    background-color: white;
+    border-bottom: 1em solid #f2f5f9;
+    height: 65px !important;
+  }
+  .mat-cell{
+    color:#8c98a2!important;
+    font-size: 1em !important;
+  }
+  .img-employ{
+    width:1.8em;
+    margin: 0 1.2em 0 0.5em;
+  }
+  th.mat-header-cell:first-of-type {
+    padding-left: 38px !important;
+  }
+  td.mat-cell:first-of-type{
+    padding-left: 38px !important;
+  }
+  

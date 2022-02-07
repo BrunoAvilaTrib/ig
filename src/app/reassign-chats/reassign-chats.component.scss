@@ -1,0 +1,55 @@
+.sub-header{
+    height: 4.7em;
+  }
+  tr.mat-header-row{
+    height: 3em;
+  }
+  .mat-table{
+    background-color: #f2f5f9;
+  }
+  .ig-dashboard-table-wrapper{
+    border:none;
+  }
+  .mat-header-cell{
+    border:none ; 
+    font-size: 0.9em !important;
+    color:#8c98a2!important; 
+  }
+  .mat-row{
+    background-color: white;
+    border-bottom: 1em solid #f2f5f9;
+    height: 65px !important;
+  }
+  .mat-cell{
+    color:#8c98a2!important;
+    font-size: 1em !important;
+  }
+  .img-employ{
+    margin: 0 1.2em 0 0.5em;
+    width:1.8em;
+  }
+  th.mat-header-cell:first-of-type {
+    padding-left: 38px !important;
+  }
+  td.mat-cell:first-of-type{
+    padding-left: 38px !important;
+  }
+  .btn-assign{
+    color: #2e4558;
+    text-decoration-line: underline;
+  }
+  .btn-assign:hover {
+    cursor: pointer;
+  }
+  
+  .data-info {
+    color: #142436;
+  }
+  
+  .data-lastname {
+    font-weight: bold;
+  }
+  
+  .data-email {
+    font-size: 0.5em;
+  }

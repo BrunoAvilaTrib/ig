@@ -1,0 +1,60 @@
+<div class="ig-dashboard-title-wrapper">
+  <img src="../../assets/img/icn-gobernanza-b.png" class="img-title">
+  <span class="ig-dashboard-title">Reasignaci&oacute;n de Chats</span>
+  <div class="ig-searcher-container">
+    <mat-icon class="ig-searcher-icon" matSuffix>search</mat-icon>
+    <input type="text" placeholder="Buscar" class="ig-input-search" matInput (keyup)="applyFilter($event.target.value)">
+  </div>
+</div>
+<!-- ********************************sub-header************************** -->
+<div class="ig-dashboard-title-wrapper sub-header">
+  <span class="count-items" *ngIf="lengthData == 0 || lengthData>=10; else addzero">{{ lengthData }}</span>
+  <ng-template #addzero><span class="count-items">0{{lengthData}}</span></ng-template>
+  <span class="type-items">Bloqueados</span>
+</div>
+<!-- ******************************table-container*********************** -->
+<div class="ig-dashboard-container">
+
+  <div class="ig-dashboard-table-wrapper ">
+    <table [dataSource]="dataSource" mat-table matSort class="full-width-table">
+      <ng-container matColumnDef="operator">
+        
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Informaci&oacute;n del operador </th>
+        <td mat-cell *matCellDef="let element">
+          <div style="display:flex; align-items:center;">
+            <img *ngIf="element.sex === 'M'" src="../../assets/img/icn-hombre-operator-info.png" class="img-employ">
+            <img *ngIf="element.sex != 'M'" src="../../assets/img/icn-operator-mu.png" class="img-employ">
+            <div class="data">
+              <div class="data-info data-lastname">{{ element.operator}}</div>
+              <div class="data-mail">{{ element.emailOperator}}</div>
+            </div>
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="chats">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> N&uacute;mero de chats </th>
+        <td mat-cell *matCellDef="let element"> {{ element.chats }} </td>
+      </ng-container>
+      <ng-container matColumnDef="assignChat">
+        <th mat-header-cell *matHeaderCellDef> Asignar Chats </th>
+        <td mat-cell *matCellDef="let element">
+          <a class="btn-assign" (click)="openAssignChatsModal(element.employPK)">Asignar
+          </a>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha de Retorno </th>
+        <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+      </ng-container>
+      <ng-container matColumnDef="area">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Area </th>
+        <td mat-cell *matCellDef="let element">{{ element.area }}</td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let element; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <div class="ig-dashboard-table-wrapper ">
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

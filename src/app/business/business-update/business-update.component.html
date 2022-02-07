@@ -1,0 +1,101 @@
+<dashboard-layermsg></dashboard-layermsg>
+<div class="ig-dashboard-title-wrapper">
+  <img src="../../assets/img/icn-empresa-b.png" class="img-title">
+  <span class="ig-dashboard-title">Crear Empresa</span>
+</div>
+
+<!-- ***************formulario************* -->
+<div class="ig-dashboard-container">
+  <form [formGroup]="formBusinessUpdate" (ngSubmit)="onFormSubmit()">
+
+
+    <section class="section-main">
+      <h2 class="ig-create-user-subtitle">Datos</h2>
+      <div class="ig-form-column">
+
+        
+        <mat-form-field class="ig-input-wrapper">
+          <input matInput  class="ig-input" formControlName="name" placeholder="Empresa"/>
+          <div class="ig-error-wrapper" *ngIf="formGroup.name.invalid && (formGroup.name.dirty || formGroup.name.touched)">
+            <label class="ig-error" *ngIf="formGroup.name.errors.required">
+              Campo es requerido.
+            </label>
+            <label class="ig-error" *ngIf="formGroup.name.errors.minlength">
+              Mínimo 3 caracteres.
+              <br>
+            </label>
+            <label class="ig-error" *ngIf="formGroup.name.errors.maxlength">
+              Máximo 100 caracteres.
+              <br>
+            </label>
+          </div>
+        </mat-form-field>
+
+
+        <mat-form-field class="ig-input-wrapper" *ngIf="this.businessPk != 0">
+          <mat-select formControlName="state" [(value)]="this.formBusinessUpdate.value.state">
+            <mat-option value="A">
+              ACTIVO
+            </mat-option>
+            <mat-option value="B">
+              INACTIVO
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field class="ig-input-wrapper">
+          <input matInput placeholder="RUC" class="ig-input" formControlName="ruc" />
+          <div class="ig-error-wrapper" *ngIf="formGroup.ruc.invalid && (formGroup.ruc.dirty || formGroup.ruc.touched)">
+            <label class="ig-error" *ngIf="formGroup.ruc.errors.required">
+              Campo es requerido.
+            </label>
+            <label class="ig-error" *ngIf="formGroup.ruc.errors.pattern">
+              Campo debe tener solo números y letras.
+            </label>
+            <label class="ig-error" *ngIf="formGroup.ruc.errors.minlength">
+              Mínimo 3 caracteres.
+              <br>
+            </label>
+            <label class="ig-error" *ngIf="formGroup.ruc.errors.maxlength">
+              Máximo 20 caracteres.
+              <br>
+            </label>
+          </div>
+        </mat-form-field>
+
+
+
+
+        <mat-form-field class="ig-input-wrapper">
+          <input matInput placeholder="E-mail Corporativo" class="ig-input" formControlName="email" />
+          <div class="ig-error-wrapper" *ngIf="formGroup.email.invalid && (formGroup.email.dirty || formGroup.email.touched)">
+            <label class="ig-error" *ngIf="formGroup.email.errors.required">
+              Campo es requerido.
+            </label>
+            <label class="ig-error" *ngIf="formGroup.email.errors.minlength">
+              Campo debe tener mínimo 7 dígitos.
+              <br>
+            </label>
+            <label class="ig-error" *ngIf="formGroup.email.errors.maxlength">
+              Campo no debe tener más de 12 dígitos.
+              <br>
+            </label>
+          </div>
+        </mat-form-field>
+
+        
+      </div>
+    </section>
+    <div class="ig-button-wrapper">
+      <button mat-raised-button class="ig-button ig-button-save" type="submit">
+        Guardar
+        <img src="assets/icons/save.svg">
+      </button>
+      <a mat-raised-button class="ig-button ig-button-cancel" routerLink="/business">
+        Cancelar
+        <img src="../../assets/img/btn-cancelar.png">
+      </a>
+    </div>
+  </form>
+</div>

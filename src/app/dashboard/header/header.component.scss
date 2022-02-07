@@ -1,0 +1,59 @@
+.mouseOverColor{
+    color: #1d2732 !important;
+}
+.mouseOverBackground{
+    background-color: white !important;
+}
+.nav-container{
+    height: 100%;
+}
+.chat-theme{
+    height: 100vh;
+    background-image: url("../../../assets/img/menu-bg.png");
+    background-repeat: no-repeat;
+}
+.navigator-list{
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 8px 0 0 0;
+}
+.img-mat-list-item{
+    width: 24px;
+}
+.sidenav-logo{
+    margin:8px auto;
+}
+.user-item{
+    justify-content: center;
+    margin: 6px 0;
+    height: 80px !important;
+    .mat-line{
+        text-align: center
+    }
+    .role-user-item{
+        background-color: #f09007;
+        border-radius: 5px;
+        padding: 2px 8px;
+        margin: 10px 5px 0;
+        color: white;
+        font-size: 12px;
+    }
+    .mat-list-item-content{
+        padding: 0;
+    }
+}
+.logout-item{
+    margin-top:auto;
+}
+.separator{
+    width: calc(100% - 12px);
+    align-self: center;
+    background-color: white;
+    margin: 5px 6px;
+    height: 0.5px;
+}
+.mat-line{
+    color: white;
+    font-weight: 400;
+}

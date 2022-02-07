@@ -1,0 +1,13 @@
+@import 'vars';
+@import 'util';
+@import 'main';
+@import 'imgrabber';
+
+html, body { height: 100%; }
+body {
+  margin: 0; 
+  font-family: Roboto, "Helvetica Neue", sans-serif; 
+  background-color: $body-color !important;
+  color: #8c98a2;
+  font-size: 0.8em;
+}

@@ -1,0 +1,8 @@
+<div *ngIf="bean && bean.msg" [ngClass]="[bean.type]" class="messagem js-msg-box-delete" id="msg-home">
+  <mat-icon class="layermsg-icon" matSuffix>check_circle_outline
+  </mat-icon>
+  <p id="msg-dialog-error">      
+    {{ bean.msg }}
+  </p>
+  
+</div>

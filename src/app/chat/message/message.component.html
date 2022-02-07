@@ -1,0 +1,41 @@
+<div class="msg-row">
+  <div class="message text-center" [ngClass]="[message.modeMsg]">
+    <div class="title-user">{{ message.toUser }}</div>
+  	<div *ngIf="message.image && !message.hasVideo" class="text-center image">
+  		<img src="{{ 'data:image/png;base64,'+message.image }}"/>
+  	</div>
+    <div *ngIf="message.msgText" class="text-left message-text" [innerHTML]="this.apiService.msgWithToken(message.msgText) | safeHTML"></div>
+    <div *ngIf="message.audio"> 
+      <audio controls src="{{ 'data:audio/ogg;base64,'+message.audio }}" preload="auto" type="audio/mp3"></audio> 
+    </div>
+    <div *ngIf="message.hasVideo">
+      <video width="320" height="240" controls>
+        <source src="{{ this.apiService.urlGet('/resource/v1/video/' + message.idMessage) }}" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+    </div>
+    <div *ngIf="message.fileDownload">
+      <div class="item-download">
+        <div class="download-icon im-icon-{{ message.fileDownload.extension }}"></div>
+        <div class="download-text" [innerHTML]="message.fileDownload.name"></div>
+        <div *ngIf="message.fileDownload.hasDownload" class="download-button">
+          <a href="{{ this.apiService.urlGet('/resource/v1/download/' + message.fileDownload.key + '/' + message.fileDownload.name + '/' )  }}"><svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 34 34" width="34" height="34"><path fill="#263238" fill-opacity=".5" d="M17 2c8.3 0 15 6.7 15 15s-6.7 15-15 15S2 25.3 2 17 8.7 2 17 2m0-1C8.2 1 1 8.2 1 17s7.2 16 16 16 16-7.2 16-16S25.8 1 17 1z"></path><path fill="#263238" fill-opacity=".5" d="M22.4 17.5h-3.2v-6.8c0-.4-.3-.7-.7-.7h-3.2c-.4 0-.7.3-.7.7v6.8h-3.2c-.6 0-.8.4-.4.8l5 5.3c.5.7 1 .5 1.5 0l5-5.3c.7-.5.5-.8-.1-.8z"></path></svg></a>
+        </div>
+      </div>
+      <div class="d-block">
+        <div *ngIf="message.fileDownload.extension" class="date pull-left d-inline">
+          {{ message.fileDownload.extension | uppercase }}
+          <span class="im-down-size"> {{ message.fileDownload.size }} </span>
+        </div>
+        <div *ngIf="!message.fileDownload.extension" class="date pull-left d-inline">
+          {{ message.fileDownload.size }}
+        </div>
+        <div class="date pull-right d-inline">{{ message.msgDate }} {{ message.msgHour }}</div>
+      </div>
+    </div>
+    <div *ngIf="!message.fileDownload">
+      <div class="date text-right">{{ message.msgDate }} {{ message.msgHour }}</div>
+    </div>
+    
+  </div>
+</div>

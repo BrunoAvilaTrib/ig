@@ -1,0 +1,70 @@
+
+.table-icon {
+    margin-bottom: 5px;
+    margin-right: 10px;
+    width: 0.9em;
+  }
+  
+.table-icon-center {
+  display:flex;
+  justify-content: center;
+}
+.mat-column-name { width: 22% !important;}
+.mat-column-phoneCust { width: 18% !important;}
+.mat-column-reason { width: 18% !important;}
+.mat-column-date { width: 19% !important;}
+.mat-column-nameArea { width: 12% !important;}
+.mat-column-defuse { width: 6% !important;}
+
+@media screen and (max-width: 765px) {
+ .ig-input-wrapper {
+   width: 300px;
+  }
+}
+//****************agregados************
+  .ig-button{
+    background: #2e4558 !important;
+    color: #FFF!important;
+    font-size: 14px!important;
+  }
+  .td.mat-cell:first-of-type{
+    display: flex !important;
+    align-items: center !important;
+  }
+  .sub-header{
+    height: 4.7em;
+  }
+  tr.mat-header-row{
+    height: 3em;
+  }
+  .mat-table{
+    background-color: #f2f5f9;
+  }
+  .ig-dashboard-table-wrapper{
+    border:none;
+  }
+  .mat-header-cell{
+    border:none ; 
+    font-size: 0.9em !important;
+    color:#8c98a2!important; 
+  }
+  .mat-row{
+    background-color: white;
+    border-bottom: 1em solid #f2f5f9;
+    height: 65px !important;
+  }
+  .mat-cell{
+    color:#8c98a2!important;
+    font-size: 1em !important;
+  }
+  .img-employ{
+    width:1.8em;
+    margin: 0 1.2em 0 0.5em;
+  }
+  th.mat-header-cell:first-of-type {
+    padding-left: 38px !important;
+  }
+  td.mat-cell:first-of-type{
+    padding-left: 38px !important;
+  }
+  

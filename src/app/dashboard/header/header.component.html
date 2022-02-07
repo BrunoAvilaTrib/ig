@@ -1,0 +1,76 @@
+<div class="chat-theme">
+  <ng-container *ngIf="isLogged">
+    <mat-drawer-container class="nav-container mat-typography" autosize>
+      <mat-drawer #drawer mode="side" disableClose="true" opened="true" class="navigator-container">
+        <img src="../../../assets/img/lgsyn.png" class="sidenav-logo">
+        <mat-nav-list class="navigator-list">
+          <hr class="separator">
+
+          <mat-list-item class="user-item">
+            <ng-container *ngIf="!isExpanded">
+              <img class="img-mat-list-item" src="../../../assets/img/icn-roler.png">
+              <!-- <img *ngIf="ownSex === 'M'" src="../../assets/img/icn-hombre-operator-info.png" class="img-mat-list-item">
+                <img *ngIf="ownSex == 'F'" src="../../assets/img/icn-operator-mu.png" class="img-mat-list-item"> -->
+            </ng-container>
+            <div mat-line *ngIf="isExpanded">{{ ownName }}</div>
+            <div class="role-user-item"> {{ ownRole }}</div>
+          </mat-list-item>
+          
+          <hr class="separator">
+          
+          <mat-list-item 
+            (mouseenter)="mouseOverConfig(nav)" 
+            (mouseleave)="mouseLeaveConfig(nav)" 
+            *ngFor="let nav of navs2" 
+            [routerLink]="['/', nav.path]"
+            [ngClass]="{'mouseOverBackground':nav.mouseOverActived }">
+            <mat-icon mat-list-icon>
+              <img *ngIf="nav.mouseOverActived" class="img-mat-list-item" [src]="nav.pathImgB">
+              <img *ngIf="!nav.mouseOverActived" class="img-mat-list-item" [src]="nav.pathImg">
+            </mat-icon>
+            <span mat-line [ngClass]="{'mouseOverColor':nav.mouseOverActived}" *ngIf="isExpanded">{{nav.header}}</span>
+          </mat-list-item>  
+          
+          <hr class="separator">
+          
+          <mat-list-item 
+          (click)="isExpanded = !isExpanded" 
+          (mouseenter)="mouseOverActivedEsconder=true"
+          (mouseleave)="mouseOverActivedEsconder=false"
+          [ngClass]="{'mouseOverBackground': mouseOverActivedEsconder }">
+            <mat-icon mat-list-icon>
+              <img *ngIf="mouseOverActivedEsconder" class="img-mat-list-item" src="../../../assets/img/icn-esconder-b.png">
+              <img *ngIf="!mouseOverActivedEsconder" class="img-mat-list-item" src="../../../assets/img/icn-esconder.png">
+            </mat-icon>
+            <h4 mat-line *ngIf="isExpanded" [ngClass]="{'mouseOverColor': mouseOverActivedEsconder }" >Esconder</h4>
+          </mat-list-item>
+          
+          <mat-list-item (click)="logout()" 
+          class="logout-item"
+          (mouseenter)="mouseOverActivedLogout=true"
+          (mouseleave)="mouseOverActivedLogout=false"
+          [ngClass]="{'mouseOverBackground': mouseOverActivedLogout }">
+            <mat-icon mat-list-icon>
+              <img *ngIf="mouseOverActivedLogout" class="img-mat-list-item" src="../../../assets/img/icn-exit-b.png">
+              <img *ngIf="!mouseOverActivedLogout" class="img-mat-list-item" src="../../../assets/img/icn-exit.png">
+            </mat-icon>
+            <h4 mat-line *ngIf="isExpanded" [ngClass]="{'mouseOverColor': mouseOverActivedLogout }">Salir</h4>
+          
+          </mat-list-item>
+        </mat-nav-list>
+      </mat-drawer>
+
+      <div class="nav-sidenav-content">
+        <ng-container *ngTemplateOutlet="template"></ng-container>
+      </div>
+    </mat-drawer-container>
+  </ng-container>
+  <ng-container *ngIf="!isLogged">
+    <ng-container *ngTemplateOutlet="template"></ng-container>
+  </ng-container>
+
+  <ng-template #template>
+    <router-outlet>
+    </router-outlet>
+  </ng-template>
+</div>

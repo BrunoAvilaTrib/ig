@@ -1,0 +1,212 @@
+<dashboard-layermsg></dashboard-layermsg>
+<div class="ig-dashboard-title-wrapper">
+  <img src="../../assets/img/icn-crearempleado-global.png" class="img-title">
+  <span class="ig-dashboard-title">Crear Supervisor/Operador</span>
+</div>
+<div class="ig-dashboard-container">
+  <form [formGroup]="formSupervisorAdd" (ngSubmit)="onFormSubmit()">
+
+
+    
+    <section class="section-main">
+      <span class="ig-create-user-subtitle">Datos</span>
+
+      <div class="ig-form-column">
+
+
+        <mat-form-field class="ig-input-wrapper">
+          <mat-label>Rol</mat-label>
+          <mat-select formControlName="roleFk">
+            <mat-option *ngFor="let role of roles" [value]="role.value">
+              {{ role.viewValue }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <mat-form-field class="ig-input-wrapper">
+          <mat-label>Empresa</mat-label>
+          <mat-select formControlName="businessFK" >
+            <mat-option *ngFor="let busines of business" [value]="busines.businessPK">
+              {{ busines.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-form-field class="ig-input-wrapper">
+          <mat-label>Área</mat-label>
+          <mat-select formControlName="areaFk" (selectionChange)="loadAllSupervisorByArea(selectArea)" #selectArea>
+            <mat-option *ngFor="let area of areas" [value]="area.areaPk">
+              {{ area.nameArea }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+   <!--SUPERVISOR APARECE CUANDO SE SELECCIONA FUNCIONARIO EN ROL-->
+        <mat-form-field class="ig-input-wrapper" *ngIf="formGroup.roleFk.value === 3">
+          <mat-label>Supervisor</mat-label>
+          <mat-select formControlName="employFk">
+            <mat-option *ngFor="let supervisor of supervisores" [value]="supervisor.employPK">
+              {{ supervisor.nameEmploy }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+
+        <!-- El div a continuacion solo sirve par alinear el formulario -->
+        <div class="ig-input-wrapper" *ngIf="formGroup.roleFk.value != 3"></div>
+      </div>
+
+
+      <div class="ig-form-column">
+        <mat-form-field class="ig-input-wrapper">
+          <input matInput placeholder="Nombre(s)" class="ig-input" formControlName="name" />
+          <div class="ig-error-wrapper" *ngIf="formGroup.name.invalid && (formGroup.name.dirty || formGroup.name.touched)">
+            <label class="ig-error" *ngIf="formGroup.name.errors.required">
+              Campo es requerido.
+            </label>
+            <label class="ig-error" *ngIf="formGroup.name.errors.minlength">
+              Mínimo 3 caracteres.
+              <br>
+            </label>
+            <label class="ig-error" *ngIf="formGroup.name.errors.maxlength">
+              Máximo 100 caracteres.
+              <br>
+            </label>
+            <label class="ig-error" *ngIf="formGroup.name.errors.pattern">
+              Solo letras y números.
+            </label>
+          </div>
+        </mat-form-field>
+        <mat-form-field class="ig-input-wrapper">
+          <input matInput placeholder="Apellido Paterno" class="ig-input" formControlName="apePat" />
+          <div class="ig-error-wrapper" *ngIf="formGroup.apePat.invalid && (formGroup.apePat.dirty || formGroup.apePat.touched)">
+            <label class="ig-error" *ngIf="formGroup.apePat.errors.required">
+              Campo es requerido.
+            </label>
+            <label class="ig-error" *ngIf="formGroup.apePat.errors.minlength">
+              Mínimo 3 caracteres.
+              <br>
+            </label>
+            <label class="ig-error" *ngIf="formGroup.apePat.errors.maxlength">
+              Máximo 60 caracteres.
+              <br>
+            </label>
+            <label class="ig-error" *ngIf="formGroup.apePat.errors.pattern">
+              Solo letras y números.
+            </label>
+          </div>
+        </mat-form-field>
+        <mat-form-field class="ig-input-wrapper">
+          <input matInput placeholder="Apellido Materno" class="ig-input" formControlName="apeMat" />
+          <div class="ig-error-wrapper" *ngIf=" formGroup.apeMat.invalid && (formGroup.apeMat.dirty || formGroup.apeMat.touched)">
+            <label class="ig-error" *ngIf="formGroup.apeMat.errors.required">
+              Campo es requerido.
+            </label>
+            <label class="ig-error" *ngIf="formGroup.apeMat.errors.minlength">
+              Mínimo 3 caracteres.
+              <br>
+            </label>
+            <label class="ig-error" *ngIf="formGroup.apeMat.errors.maxlength">
+              Máximo 60 caracteres.
+              <br>
+            </label>
+            <label class="ig-error" *ngIf="formGroup.apeMat.errors.pattern">
+              Solo letras y números.
+            </label>
+          </div>
+        </mat-form-field>
+        <mat-form-field class="ig-input-wrapper">
+          <input matInput placeholder="E-mail" class="ig-input" formControlName="email" />
+          <div class="ig-error-wrapper" *ngIf=" formGroup.email.invalid && (formGroup.email.dirty || formGroup.email.touched)">
+            <label class="ig-error" *ngIf="formGroup.email.errors.required">
+              Campo es requerido.
+            </label>
+            <label class="ig-error" *ngIf="formGroup.email.errors.email">
+              Formato de email obligatorio.
+              <br>
+            </label>
+            <label class="ig-error" *ngIf="formGroup.email.errors.maxlength">
+              Máximo 150 caracteres.
+            </label>
+          </div>
+        </mat-form-field>
+      </div>
+      <div class="ig-form-column">
+        <mat-form-field class="ig-input-wrapper">
+          <mat-label>Sexo</mat-label>
+          <mat-select formControlName="sex">
+            <mat-option value="M"> Masculino </mat-option>
+            <mat-option value="F"> Femenino </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="ig-input-wrapper">
+          <input matInput placeholder="Celular" class="ig-input" formControlName="mobile" />
+          <div class="ig-error-wrapper" *ngIf=" formGroup.mobile.invalid && (formGroup.mobile.dirty || formGroup.mobile.touched)">
+            <label class="ig-error" *ngIf="formGroup.mobile.errors.required">
+              Campo es requerido.
+            </label>
+            <label class="ig-error" *ngIf="formGroup.mobile.errors.minlength">
+              Mínimo 9 dígitos.
+              <br>
+            </label>
+            <label class="ig-error" *ngIf="formGroup.mobile.errors.maxlength">
+              Máximo 12 dígitos.
+              <br>
+            </label>
+            <label class="ig-error" *ngIf="formGroup.mobile.errors.pattern">
+              Solo números.
+            </label>
+          </div>
+        </mat-form-field>
+        <mat-form-field class="ig-input-wrapper">
+          <input [type]="hide ? 'password' : 'text'" matInput placeholder="Contraseña" class="ig-input" formControlName="password"
+            autocomplete="new-password" />
+          <button mat-icon-button matSuffix (click)="showPassword($event, 'hide')" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <div class="ig-error-wrapper" *ngIf=" formGroup.password.invalid && (formGroup.password.dirty || formGroup.password.touched)">
+            <label class="ig-error" *ngIf="formGroup.password.errors.required">
+              Campo es requerido.
+            </label>
+            <label class="ig-error" *ngIf="formGroup.password.errors.pattern">
+              Solo letras y números (mínimo una mayúscula, minúscula y un número) de 8 a 60 caracteres.
+            </label>
+          </div>
+        </mat-form-field>
+        <mat-form-field class="ig-input-wrapper">
+          <input [type]="hideConfirm ? 'password' : 'text'" matInput placeholder="Confirmar contraseña" class="ig-input" formControlName="confirmPassword"
+          />
+          <button mat-icon-button matSuffix (click)="showPassword($event, 'hideConfirm')" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hideConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+          <div class="ig-error-wrapper" *ngIf=" formGroup.confirmPassword.invalid && (formGroup.confirmPassword.dirty || formGroup.confirmPassword.touched)">
+            <label class="ig-error" *ngIf="formGroup.confirmPassword.errors.required">
+              Campo es requerido.
+            </label>
+            <label class="ig-error" *ngIf="formGroup.confirmPassword.errors.mustMatch">
+              Las contraseñas deben coincidir.
+            </label>
+          </div>
+        </mat-form-field>
+
+      </div>
+      <div class="ig-form-column">
+      </div>
+
+    </section>
+
+
+    <div class="ig-button-wrapper">
+      <button mat-raised-button class="ig-button ig-button-save" type="submit">
+        Guardar
+        <img src="../../assets/img/btn-guardar.png">
+      </button>
+      <a mat-raised-button class="ig-button ig-button-cancel" routerLink="/employee">
+        Cancelar
+        <img src="../../assets/img/btn-cancelar.png">
+      </a>
+    </div>
+  </form>
+</div>

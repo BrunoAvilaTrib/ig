@@ -1,0 +1,9 @@
+{
+    "status": {
+        "code": "0000",
+        "message": "El servicio se ha ejecutado de forma correcta."
+    },
+    "data": {
+        "sessionId": "ExwemEOJStOqdGxFmS3mXA=="
+    }
+}

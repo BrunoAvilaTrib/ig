@@ -1,0 +1,68 @@
+<div class="ig-dashboard-title-wrapper">
+  <img src="../../assets/img/icn-bloqueago-global.png" class="img-title">
+  <span class="ig-dashboard-title">Clientes Bloqueados</span>
+  <div class="ig-searcher-container">
+    <mat-icon class="ig-searcher-icon" matSuffix>search</mat-icon>
+    <input type="text" placeholder="Buscar" class="ig-input-search" matInput (keyup)="applyFilter($event.target.value)">
+  </div>
+</div>
+<!-- ********************************sub-header************************** -->
+<div class="ig-dashboard-title-wrapper sub-header">
+  <span class="count-items">{{lengthData}}</span>
+  <span class="type-items">Areas</span>
+  <span class="before-select">Orden por : </span>
+  <select class="custom-select" tabindex="-1" id="select-name" (change)="OrderTo(itemSelected)" #itemSelected>
+    <option value="default" selected>Ninguno</option>
+    <option value="nameArea">Area</option>
+    <option value="countAssigned">Operadores Asignados</option>
+    <option value="support">Estado</option>
+    <option value="date">Fecha de Registro</option>
+    <option value="nameBusiness">Empresa</option>
+  </select>
+</div>
+<!-- ******************************table-container*********************** -->
+<div class="ig-dashboard-container">
+
+  <div class="ig-dashboard-table-wrapper ">
+    <table [dataSource]="dataSource" mat-table class="full-width-table">
+      <ng-container matColumnDef="nameOper">
+        <th mat-header-cell *matHeaderCellDef> Informacion del Operador </th>
+        <td mat-cell *matCellDef="let element"> 
+            <span>{{ element.nameOper}} </span>
+            <span style="display:block;">{{ element.emailOper}} </span>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="phoneCust">
+        <th mat-header-cell *matHeaderCellDef> Numero de telefono </th>
+        <td mat-cell *matCellDef="let element"> {{ element.phoneCust }} </td>
+      </ng-container>
+      <ng-container matColumnDef="reason">
+        <th mat-header-cell *matHeaderCellDef> Motivo del bloqueo </th>
+        <td mat-cell *matCellDef="let element">{{ element.reason}} </td>
+      </ng-container>
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Fecha de Bloqueo</th>
+        <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+      </ng-container>
+      <ng-container matColumnDef="nameArea">
+        <th mat-header-cell *matHeaderCellDef> Area </th>
+        <td mat-cell *matCellDef="let element">{{ element.nameArea }}</td>
+      </ng-container>
+      <ng-container matColumnDef="defuse">
+        <th mat-header-cell *matHeaderCellDef> Desbloquear </th>
+        <td mat-cell *matCellDef="let element">
+          <div class="table-icon-center">
+            <a class="" href="#" (click)="delete($event, element.excluidCustPK)">
+              <img class="table-icon" src="../../assets/img/btn-closed.png">
+            </a>
+          </div>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let element; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <div class="ig-dashboard-table-wrapper ">
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

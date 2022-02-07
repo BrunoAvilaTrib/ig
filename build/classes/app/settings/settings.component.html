@@ -1,0 +1,19 @@
+<dashboard-header class="dashboard"></dashboard-header>
+<dashboard-layermsg></dashboard-layermsg>
+<div class="ig-dashboard-title-wrapper">
+  <h1 class="ig-dashboard-title">Configuraciones del sistema </h1>
+</div>
+<div class="ig-dashboard-container">
+  <section class="ig-dashboard-section-main">
+    <div class="ig-form-column" *ngFor="let item of configs; index as i">
+      <mat-checkbox 
+        [checked]="item.state === 'A'" 
+        (click)="changeStateConf(i, $event)"
+        [id]="item.generalConfigPk" 
+        [name]="item.name"
+      >
+        {{ item.name }}
+      </mat-checkbox>
+    </div>
+  </section>
+</div>

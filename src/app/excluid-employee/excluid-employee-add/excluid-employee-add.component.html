@@ -1,0 +1,60 @@
+<dashboard-layermsg></dashboard-layermsg>
+<div class="ig-dashboard-title-wrapper">
+  <img src="../../assets/img/icn-crearempleado-global.png" class="img-title">
+  <span class="ig-dashboard-title">Crear registro de vacaciones</span>
+</div>
+<div class="ig-dashboard-container">
+  <form [formGroup]="formExcluidEmployeeAdd" (ngSubmit)="onFormSubmit()">
+    <section class="section-main">
+      <span class="ig-create-user-subtitle">Datos</span>
+      <div class="ig-form-column">
+        <mat-form-field class="ig-input-wrapper">
+          <mat-label>Area</mat-label>
+          <mat-select formControlName="areaFk" (selectionChange)="loadAllEmployByArea(selectArea)" #selectArea>
+            <mat-option *ngFor="let area of areas" [value]="area.areaPK">
+              {{ area.name }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="ig-input-wrapper">
+          <mat-label>Empleado</mat-label>
+          <mat-select formControlName="employFk">
+            <mat-option *ngFor="let employee of employees" [value]="employee.employPK">
+              {{ employee.nameEmploy }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field class="ig-input-wrapper">
+          <mat-label>Inicio de vacaciones</mat-label>
+          <input matInput [matDatepicker]="picker1" formControlName="startDate">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1 startView="year"></mat-datepicker>
+        </mat-form-field>
+
+        <mat-form-field class="ig-input-wrapper">
+          <mat-label>Final de vacaciones</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="endDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker startView="year"></mat-datepicker>
+        </mat-form-field>
+      
+      </div>
+      <div class="ig-form-column">
+        
+      </div>
+    </section>
+
+    <div class="ig-button-wrapper">
+      <button mat-raised-button class="ig-button ig-button-save" type="submit">
+        Guardar
+        <img src="../../assets/img/btn-guardar.png">
+      </button>
+      <a mat-raised-button class="ig-button ig-button-cancel" routerLink="/excluidemployee">
+        Cancelar
+        <img src="../../assets/img/btn-cancelar.png">
+      </a>
+    </div>
+
+  </form>
+</div>

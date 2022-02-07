@@ -1,0 +1,93 @@
+
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// **Be sure that you only ever include this mixin once!**
+@include mat-core();
+
+// Define the default theme (same as the example above).
+$candy-app-primary: mat-palette($mat-gray,900);
+$candy-app-accent:  mat-palette($mat-pink, A200, A100, A400);
+$candy-app-theme:   mat-light-theme($candy-app-primary, $candy-app-accent);
+
+// Include the default theme styles.
+@include angular-material-theme($candy-app-theme);
+
+
+// Define an alternate dark theme.
+$dark-primary: mat-palette($mat-grey,900);
+$dark-accent:  mat-palette($mat-grey, 50);
+$dark-warn:    mat-palette($mat-red);
+$dark-theme:   mat-dark-theme($dark-primary, $dark-accent, $dark-warn);
+
+$chat-primary: mat-palette($mat-grey,900);
+$chat-accent:  mat-palette($mat-amber, A200, A100, A400);
+$chat-warn:    mat-palette($mat-red);
+$chat-theme:   mat-light-theme($chat-primary, $chat-accent, $chat-warn);
+
+// Include the alternative theme styles inside of a block with a CSS class. You can make this
+// CSS class whatever you want. In this example, any component inside of an element with
+// `.unicorn-dark-theme` will be affected by this alternate dark theme instead of the default theme.
+.login-theme {
+  .mat-form-field-ripple{
+    background-color: white !important;
+  }
+  .mat-form-field-infix{
+    border:none !important;
+  }
+  .mat-form-field-underline{
+    background-color: white !important;
+  }
+  .mat-form-field-label{
+    color: white !important;
+  }
+  @include angular-material-theme($dark-theme);
+  
+}
+
+.chat-theme{
+  .mat-input-element{
+    color: #212121;
+  }
+  
+  .mat-list-item-content{
+    padding: 0 8px !important;
+    justify-content: center;
+  }
+  .mat-list-item{
+    color: white !important;
+  }
+  .user-item{
+    .mat-list-item-content{
+      flex-direction: column !important;
+      padding: 0 !important;
+    }
+  }
+  .mat-drawer{
+    background-image: url("../assets/img/menu-bg.png");
+  }
+  .mat-drawer-inner-container{
+    display:flex;
+    flex-direction: column;
+    color: white;
+  }
+  .mat-drawer-content{
+   background-color: #f2f5f9 !important;
+  }
+  .mat-expansion-panel-header{
+    height: 48px !important;
+  }
+  .mat-expansion-panel-header-title{
+    font-weight: 600;
+    color:#2e4558 !important;
+  }
+  .mat-expansion-indicator::after{
+    color:#2e4558  !important;
+  }
+  // .mat-select-placeholder, .mat-select-value{
+  //   color:#113c6b !important;
+  // }
+  @include angular-material-theme($chat-theme);
+}

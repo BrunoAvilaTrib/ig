@@ -1,0 +1,11 @@
+<h1 mat-dialog-title>Motivo del bloqueo</h1>
+<div class="header-line"></div>
+<div mat-dialog-content>
+  <mat-form-field floatLabel="never">
+    <textarea matInput [(ngModel)]="data.reason" placeholder="Ingresar el motivo del bloqueo" maxlength="300" rows="5"></textarea>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial class="ig-button-save">Aceptar</button>
+  <button mat-button class="ig-button-cancel" (click)="onNoClick()">Cancelar</button>
+</div>

@@ -1,0 +1,322 @@
+.ig-dashboard-container {
+  padding: 0 3em;
+  margin: 10px 0 50px;
+  color: #8c98a2; 
+}
+// **********************headers y sub-header-configuration*******************
+ .ig-dashboard-title {
+  color:#142436;
+  font-size: 1.8em;
+  font-weight: 600;
+  margin: 0;
+}
+.img-title{
+  width: 32px;
+  margin-right: 14px;
+}
+.ig-dashboard-title-wrapper {
+  display:flex;
+  padding: 0 3em;
+  height: 5.5em;
+  align-items: center;
+  border-bottom: 1.5px solid #e9edf5;
+}
+.sub-header{
+  height: 4.7em;
+  color:#78848f;
+  font-weight: 600;
+}
+.count-items{
+  margin-right: 12px;
+  color: #113c6b;
+  font-size: 2.5em;
+}
+.type-items{
+  padding: 1em 1.5em 1em 0;
+  margin-right: 1.5em;
+  border-right: 1.5px solid #e9edf5;
+}
+.before-select{
+  margin-right: 1em;
+}
+.custom-select{
+  color:#78848f;
+  font-weight: 600;
+  border: 1.5px solid #e9edf5;
+  padding: 5px;
+}
+// *****************************************************
+.ig-dashboard-section-main {
+  padding: 24px;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid $color-border; 
+}
+
+ .ig-button .mat-icon,
+ .ig-button .material-icons {
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+}
+
+.mat-table .material-icons {
+  color:  $ig-color-primary;
+  margin: auto 5px;
+}
+
+ .mat-form-field-label-wrapper,
+ .ig-input {
+  font-size: 16px;
+}
+
+ 
+.ig-button {
+  background:$dark-color-border;
+  color: #FFF;
+  font-size: 14px;
+}
+.ig-button .button-icon{
+  width:1.8em;  
+}
+
+.ig-dashboard-table-wrapper {
+  max-height: 380px;
+  overflow: auto;
+}
+
+ .full-width-table {
+  width: 100%;
+}
+
+ .mat-header-cell,
+.mat-header-cell {
+  color: #515151 !important;
+}
+
+ .mat-focused .mat-form-field-label,
+.mat-focused .mat-form-field-label {
+  color: #515151 !important;
+}
+
+// Cambiar el color de linea a input - material
+
+.mat-form-field-appearance-legacy .mat-form-field-ripple {
+  background-color: $ig-color-primary !important;
+}
+
+.mat-form-field-appearance-outline .mat-form-field-outline-end,
+.mat-form-field-appearance-outline .mat-form-field-outline-gap,
+.mat-form-field-appearance-outline .mat-form-field-outline-start {
+  border-color: $line-input;
+}
+// .mat-form-field-appearance-outline .mat-form-field-outline-gap{
+//   border-bottom-color: $line-input;
+// }   
+
+
+ .mat-header-cell,
+.mat-header-cell {
+  color: #515151 !important;
+  font-size: 14px !important;
+  font-weight: 700;
+}
+
+ .mat-elevation-z8,
+.mat-elevation-z8 {
+  border: 1px solid $color-border;
+  box-shadow: none;
+}
+
+ tr.mat-row {
+  height: 40px;
+}
+
+.mat-select-panel:not([class*=mat-elevation-z]) {
+  margin-top: 30px !important;
+}
+
+.mat-checkbox-checked.mat-accent .mat-checkbox-background {
+  background-color: $line-input;
+}
+
+.ig-button-wrapper {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+ .mat-checkbox {
+  font-size: 16px;
+}
+
+ .mat-checkbox-inner-container {
+  margin-bottom: 5px;
+  margin-right: 20px;
+}
+
+.ig-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1001;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,.3);
+  overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ig-overlay-content {
+  width: 400px;
+  padding: 30px 30px 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  position: relative;
+  box-shadow: 0 10px 50px 0 rgba(0,0,0,.6);
+}
+
+.ig-overlay-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+}
+
+.ig-overlay-title {
+  font-size: 24px;
+  margin: 0 0 15px;
+  font-weight: 400;
+}
+
+.mat-dialog-container {
+  padding: 24px 40px !important;
+}
+
+.ig-icon-close {
+  width: 15px;
+  height: 15px;
+  position: relative;
+}
+
+.ig-overlay-button-wrapper {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.ig-icon-close::before,
+.ig-icon-close::after {
+  content: "";
+  width: 15px;
+  height: 1px;
+  top: 50%;
+  left: 50%;
+  background: #2a2a2e;
+  position: absolute;
+}
+
+.ig-icon-close::before {
+  bottom: -5px;
+  transform: translateY(-50%) translateX(-50%) rotate(45deg);
+}
+
+.ig-icon-close::after {
+  bottom: -5px;
+  transform: translateY(-50%) translateX(-50%) rotate(135deg);
+}
+
+.ig-error {
+  font-size: 12px;
+  color: $ig-color-primary;
+}
+
+.ig-error-wrapper {
+  position: absolute;
+  margin-top: 10px;
+  width: 116%;
+  line-height: 14px;
+}
+.ig-searcher-container {
+  width: 220px;
+  margin-left: auto;
+  padding: 0.2em 1.5em;  
+  transition: background 100ms ease, border 100ms ease;
+  border-radius: 1.7em;
+  border: 1.5px solid #e9edf5;
+  display: flex;
+  &:focus-within {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  &:focus-within > .ig-searcher-icon {
+    color: #515151;
+  }
+}
+
+.ig-searcher-icon {
+  color: rgba(0, 0, 0, 0.5);
+  margin-right: 10px;
+  transition: all 100ms ease;
+}
+
+.ig-input-search {
+  border: none;
+  padding: 0px;
+  margin: 0px;
+  height: auto;
+  width: calc(100% - 60px);
+  background-color: initial;
+  
+  &::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+.mat-radio-outer-circle {
+.mat-radio-checked & {
+    border-color: #898989 !important;
+  }
+}
+  
+.mat-radio-inner-circle {
+  background-color: #898989 !important;
+}
+
+.mat-radio-ripple .mat-ripple-element {
+  background-color: rgba(#898989, 0.26) !important;
+}
+
+// Boton agregar y editar
+.ig-button-save {
+  background-color: $dark-color-border !important;
+  margin-right: 20px !important;
+  border-radius: 5px !important;
+  box-shadow: none !important;
+  color: white !important;
+  img{
+    width: 1.3em;
+  }
+}
+
+.ig-button-cancel
+{
+  border-radius: 5px !important;
+  border: 1.5px solid $dark-color-border !important;  
+  color: $dark-color-border !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  img{
+    width: 1.3em;
+  }
+}
+.ig-create-user-subtitle{
+  font-size: 1.8em !important;
+  margin-bottom: 15px;
+  color: #113c6b;
+  font-weight: 600 !important;
+}

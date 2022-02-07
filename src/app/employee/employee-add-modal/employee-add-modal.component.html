@@ -1,0 +1,43 @@
+<h1 mat-dialog-title>Datos del Excluido</h1>
+<form [formGroup]="formExcluid" (ngSubmit)="onFormModalSubmit()">
+  <div mat-dialog-content>
+    <mat-form-field>
+      <input matInput placeholder="Alias" class="ig-input" formControlName="alias" />
+      <div class="ig-error-wrapper" *ngIf="formGroup.alias.invalid && (formGroup.alias.dirty || formGroup.alias.touched)">
+        <label class="ig-error" *ngIf="formGroup.alias.errors.required">
+          Campo es requerido.
+        </label>
+        <label class="ig-error" *ngIf="formGroup.alias.errors.minlength">
+          Mínimo 3 caracteres.<br>
+        </label>
+        <label class="ig-error" *ngIf="formGroup.alias.errors.maxlength">
+          Máximo 60 caracteres.<br>
+        </label>
+        <label class="ig-error" *ngIf="formGroup.alias.errors.pattern">
+          Solo letras y espacio.
+        </label>
+      </div>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="mobile" class="ig-input" formControlName="mobile" />
+      <div class="ig-error-wrapper" *ngIf="formGroup.mobile.invalid && (formGroup.mobile.dirty || formGroup.mobile.touched)">
+        <label class="ig-error" *ngIf="formGroup.mobile.errors.required">
+          Campo es requerido.
+        </label>
+        <label class="ig-error" *ngIf="formGroup.mobile.errors.minlength">
+          Mínimo 9 dígitos.<br>
+        </label>
+        <label class="ig-error" *ngIf="formGroup.mobile.errors.maxlength">
+          Máximo 12 dígitos.<br>
+        </label>
+        <label class="ig-error" *ngIf="formGroup.mobile.errors.pattern">
+          Solo números.
+        </label>
+      </div>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close (click)="onNoClick()">Cancelar </button>
+    <button type="submit" mat-button cdkFocusInitial class="ig-button ig-button-save">Aceptar</button>
+  </div>
+</form>

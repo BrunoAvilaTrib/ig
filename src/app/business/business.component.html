@@ -1,0 +1,83 @@
+<!-- *****************header*************** -->
+<div class="ig-dashboard-title-wrapper">
+  <img src="../../assets/img/icn-empresa-b.png" class="img-title">
+  <span class="ig-dashboard-title">Mantenimiento Empresas</span>
+  <div class="ig-searcher-container">
+    <mat-icon class="ig-searcher-icon" matSuffix>search</mat-icon>
+    <input type="text" placeholder="Buscar" class="ig-input-search" matInput (keyup)="applyFilter($event.target.value)">
+  </div>
+</div>
+<!-- *****************sub-header*************** -->
+<div class="ig-dashboard-title-wrapper sub-header">
+  <span class="count-items">{{lengthData}}</span>
+  <span class="type-items">Empresas</span>
+  <span class="before-select">Orden por : </span>
+  <select class="custom-select" tabindex="-1" id="select-name" (change)="OrderTo(itemSelected)" #itemSelected>
+    <option value="default" selected>Ninguno</option>
+    <option value="name">Nombre</option>
+    <option value="countAssigned">Areas asignadas</option>
+    <option value="state">Estado</option>
+  </select>
+</div>
+<!-- ******************table-container******************* -->
+<div class="ig-dashboard-container">
+
+  <div class="ig-dashboard-table-wrapper ">
+    <table [dataSource]="dataSource" mat-table class="full-width-table">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nombre </th>
+        <td mat-cell *matCellDef="let element"> {{ element.name }} </td>
+      </ng-container>
+      <ng-container matColumnDef="countAssigned">
+        <th mat-header-cell *matHeaderCellDef> Areas Asignadas </th>
+        <td mat-cell *matCellDef="let element"> {{ element.countAssigned }} </td>
+      </ng-container>
+      <ng-container matColumnDef="state">
+        <th mat-header-cell *matHeaderCellDef> Estado </th>
+        <td mat-cell *matCellDef="let element">
+          <div *ngIf="element.state == 1">
+            Activo
+          </div>
+          <div *ngIf="element.state == 0">
+            Inactivo
+          </div>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Fecha de Registro </th>
+        <td mat-cell *matCellDef="let element">{{ element.date }}</td>
+      </ng-container>
+      <ng-container matColumnDef="email">
+          <th mat-header-cell *matHeaderCellDef> E-mail </th>
+          <td mat-cell *matCellDef="let element">{{ element.email }}</td>
+        </ng-container>
+      <ng-container matColumnDef="edite">
+        <th mat-header-cell *matHeaderCellDef> Editar </th>
+        <td mat-cell *matCellDef="let element">
+          <a class="" [routerLink]="['/business/update/', {businessPk: element.businessPK}]">
+            <img class="table-icon" src="../../assets/img/btn-edit-empleado.png">
+          </a>
+        </td>
+      </ng-container>
+      <ng-container matColumnDef="delete">
+        <th mat-header-cell *matHeaderCellDef> Eliminar </th>
+        <td mat-cell *matCellDef="let element">
+          <a class="" href="#" (click)="delete($event, element.businessPK)">
+            <img class="table-icon" src="../../assets/img/btn-delete.png">
+          </a>
+        </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let element; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+  <div class="ig-dashboard-table-wrapper ">
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+  <div class="ig-button-wrapper">
+    <a routerLink="/business/create" mat-raised-button class="ig-button">
+      Agregar
+      <img src="../../assets/img/btn-agregar.png" class="button-icon">
+    </a>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<dashboard-header class="dashboard"></dashboard-header>
+<dashboard-layermsg></dashboard-layermsg>
+<div class="ig-dashboard-title-wrapper">
+  <h1 class="ig-dashboard-title">Registro de auditoría</h1>
+</div>
+<div class="ig-dashboard-container">
+  <div class="ig-searcher-container">
+    <mat-icon class="ig-searcher-icon" matSuffix>search</mat-icon>
+    <input type="text" placeholder="Buscar traza" class="ig-input-search" matInput (keyup)="applyFilter($event.target.value)">
+  </div>
+  <div class="ig-dashboard-table-wrapper mat-elevation-z8">
+    <table mat-table [dataSource]="dataSourceTrace" class="full-width-table">
+      <ng-container matColumnDef="item">
+        <th mat-header-cell *matHeaderCellDef> Item </th>
+        <td mat-cell *matCellDef="let element"> {{ element.employTrazePk }} </td>
+      </ng-container>
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> Fecha </th>
+        <td mat-cell *matCellDef="let element"> {{ element.date }} </td>
+      </ng-container>
+      <ng-container matColumnDef="hour">
+        <th mat-header-cell *matHeaderCellDef> Hora </th>
+        <td mat-cell *matCellDef="let element"> {{ element.time }} </td>
+      </ng-container>
+      <ng-container matColumnDef="operation">
+        <th mat-header-cell *matHeaderCellDef> Operación </th>
+        <td mat-cell *matCellDef="let element"> {{ element.operation }} </td>
+      </ng-container>
+      <ng-container matColumnDef="user">
+        <th mat-header-cell *matHeaderCellDef> Usuario </th>
+        <td mat-cell *matCellDef="let element"> {{ element.login }} </td>
+      </ng-container>
+      <ng-container matColumnDef="cdr">
+        <th mat-header-cell *matHeaderCellDef> CDR </th>
+        <td mat-cell *matCellDef="let element"> {{ element.areaAnexo }} </td>
+      </ng-container>
+      <ng-container matColumnDef="area">
+        <th mat-header-cell *matHeaderCellDef> Área </th>
+        <td mat-cell *matCellDef="let element"> {{ element.areaName }} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayColumnsTrace; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayColumnsTrace;"></tr>
+    </table>
+  </div>
+  <div class="ig-dashboard-table-wrapper mat-elevation-z8">
+    <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+  </div>
+</div>

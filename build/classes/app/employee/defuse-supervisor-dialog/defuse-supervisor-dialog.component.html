@@ -1,0 +1,16 @@
+<h1 mat-dialog-title>Datos del Excluido</h1>
+<form [formGroup]="formExcluid" (ngSubmit)="onFormDialogSubmit()">
+  <div mat-dialog-content>
+    <mat-form-field>
+      <mat-label>Seleccione nuevo supervisor</mat-label>
+      <mat-select formControlName="superEmployPK">
+        <mat-option *ngFor="let supervisor of supervisors" ></mat-option>
+      </mat-select>
+      <!-- <input matInput placeholder="Alias" class="ig-input" formControlName="superEmployPK" /> -->
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button mat-dialog-close (click)="onNoClick()">Cancelar </button>
+    <button type="submit" mat-button cdkFocusInitial class="ig-button ig-button-save">Aceptar</button>
+  </div>
+</form>

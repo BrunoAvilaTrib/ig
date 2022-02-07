@@ -1,0 +1,37 @@
+@import './../../../sass/vars.scss';
+
+.section-main {
+  padding: 24px;
+  background: #fff;
+  border-radius: 4px;
+  border: 1px solid $color-border; 
+  box-shadow: 0 1px 2px 0 $color-border
+}
+
+.ig-input-wrapper {
+  margin-right: 50px;
+  width: 22%;
+}
+
+.ig-button-save {
+  background-color: $dark-color-border;
+  margin-right: 20px;
+  border-radius: 5px;
+  box-shadow: none;
+  color: white;
+  img{
+    width: 1.3em;
+  }
+}
+
+.ig-button-cancel
+{
+  border-radius: 5px;
+  border: 1.5px solid $dark-color-border;  
+  color: $dark-color-border;
+  background-color: transparent;
+  box-shadow: none;
+  img{
+    width: 1.3em;
+  }
+}

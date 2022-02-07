@@ -1,0 +1,63 @@
+<dashboard-layermsg></dashboard-layermsg>
+<div class="ig-dashboard-title-wrapper">
+  <span class="ig-dashboard-title">Crear Área</span>
+</div>
+<div class="ig-dashboard-container">
+  <form [formGroup]="formAreaAdd" (ngSubmit)="onFormSubmit()">
+    <section class="section-main">
+      <span class="ig-create-user-subtitle">Datos</span>
+      <div class="ig-form-column">
+        <mat-form-field class="ig-input-wrapper">
+          <input matInput placeholder="Area" class="ig-input" formControlName="areaName"/>
+          <div class="ig-error-wrapper"
+            *ngIf="formGroup.areaName.invalid && (formGroup.areaName.dirty || formGroup.areaName.touched)">
+            <label class="ig-error" *ngIf="formGroup.areaName.errors.required">
+              Campo es requerido.
+            </label>
+            <label class="ig-error" *ngIf="formGroup.areaName.errors.minlength">
+              Mínimo 3 caracteres.<br>
+            </label>
+            <label class="ig-error" *ngIf="formGroup.areaName.errors.maxlength">
+              Máximo 100 caracteres.<br>
+            </label>
+            <label class="ig-error" *ngIf="formGroup.areaName.errors.pattern">
+              Solo letras y números.
+            </label>
+          </div>
+        </mat-form-field>
+        <mat-form-field class="ig-input-wrapper">
+          <input 
+          matInput 
+          placeholder="Texto Adicional" 
+          class="ig-input" 
+          formControlName="areaComment"/> 
+          <div class="ig-error-wrapper"
+            *ngIf="formGroup.areaComment.invalid && (formGroup.areaComment.dirty || formGroup.areaComment.touched)">
+            <label class="ig-error" *ngIf="formGroup.areaComment.errors.required">
+              Campo es requerido.
+            </label>
+            <label class="ig-error" *ngIf="formGroup.areaComment.errors.minlength">
+              Mínimo 3 caracteres.<br>
+            </label>
+            <label class="ig-error" *ngIf="formGroup.areaComment.errors.maxlength">
+              Máximo 20 caracteres.<br>
+            </label>
+          </div>
+        </mat-form-field>
+      </div>
+    </section>
+    <div class="ig-button-wrapper">
+      <button 
+      mat-raised-button 
+      class="ig-button ig-button-save"
+      type="submit">
+        Guardar 
+        <img src="../../assets/img/btn-guardar.png">
+      </button>
+      <a mat-raised-button class="ig-button ig-button-cancel" routerLink="/area">
+        Cancelar 
+        <img src="../../assets/img/btn-cancelar.png">
+      </a>
+    </div>
+  </form>
+</div>

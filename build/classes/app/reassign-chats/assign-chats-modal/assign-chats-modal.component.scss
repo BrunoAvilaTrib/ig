@@ -1,0 +1,87 @@
+@import '../../../sass/vars.scss';
+@import '../../../sass/util';
+@import '../../../sass/main.scss';
+
+::ng-deep .mat-dialog-container {
+  background: #ebf0f9;
+  border-radius: 0;
+  padding: 0 !important;
+}
+.sub-header{
+  height: 4.7em;
+}
+tr.mat-header-row{
+  height: 3em;
+}
+.mat-table{
+  background-color: #ebf0f9;
+}
+.ig-dashboard-table-wrapper{
+  border:none;
+}
+.ig-dashboard-title-wrapper{
+  background: #f2f5f9
+}
+.mat-header-cell{
+  border:none ; 
+  font-size: 0.9em !important;
+  color:#8c98a2 !important; 
+}
+.mat-row{
+  background-color: white;
+  border-bottom: 1em solid #ebf0f9;
+  height: 65px !important;
+}
+.mat-cell{
+  color:#8c98a2 !important;
+  font-size: 1em !important;
+}
+th.mat-header-cell:first-of-type {
+  padding-left: 38px !important;
+}
+td.mat-cell:first-of-type{
+  padding-left: 38px !important;
+}
+.btn-close {
+  color:#8c98a2;
+}
+.to-assign-button {
+  border: 1.5px solid $dark-color-border;
+  background-color: $dark-color-border;
+  color: #fff;
+}
+.automatically-assign-button{
+  border: 1.5px solid $dark-color-border;
+  color: $dark-color-border;
+}
+.mat-button {
+  padding: 0 10px !important;
+  line-height: 28px;
+}
+.remove-assignment-button {
+  border: 1.5px solid $ig-color-primary;
+  color: $ig-color-primary;
+}
+.assignedState {
+  font-weight: 400px;
+  color:#01d4af;
+}
+.unassignedState {
+  font-weight: 400px;
+  color: $ig-color-primary;
+}
+.btn-margin-right {
+  margin-right: 15px;
+}
+.buttons-container {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.letter-spacing {
+  letter-spacing: 0.2em;
+}
+::ng-deep .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+::ng-deep .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background {
+  background: $dark-color-border !important;
+}
